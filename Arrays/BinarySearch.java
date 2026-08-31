@@ -1,61 +1,29 @@
 package Arrays;
 
-public class BinarySearch {
-    public int search(int nums[], int target){
-        //min will have index of minimum element of nums
-        int min = minSearch(nums);
-        //find in sorted left
-        if(nums[min] <= target && target <= nums[nums.length-1]){
-            return search(nums,min,nums.length-1,target);
-        }
-        //find in sorted right
-        else{
-            return search(nums,0,min-1,target);
-        }
-    }
-        // binary search to find target in left to right boundary
-        public int search(int nums[], int left, int right,int target){
-            int l= left;
-            int r = right;
-            //System.out.pritnln(left+" "+right);
-            while(l<=r){
-                int mid = l+(r-l)/2;
-                if(nums[mid] == target){
+public class BinarySearch{
+    public static int BinarySearchElement(int nums[],int target){
+        int start =0;
+        int end = nums.length-1;
+        while(start<=end){
+            int mid = (start+end)/2;
+                if(nums[mid]==target){
                     return mid;
                 }
-                else if(nums[mid]>target){
-                    r = mid-1;
+                if(nums[mid]<target){
+                    start = mid+1;
                 }
                 else{
-                    l=mid+1;
+                    end = mid -1;
                 }
-
             }
             return -1;
-    }
-    public int minSearch(int nums[]){
-        int left=0;
-        int right=nums.length-1;
-        while(left<right){
-            int mid = left+(right-left)/2;
-            if(mid>0 && nums[mid-1] > nums[mid]){
-                return mid;
-            }
-            else if(nums[left] <= nums[mid] && nums[mid] > nums[right]){
-                left = mid+1;
-            }
-            else {
-                right = mid-1;
-            }
         }
-        return left;
-    }
     public static void main(String args[]){
         int nums[] = {4,5,6,7,0,1,2};
         int target = 0;
+        System.out.println("index number: "+BinarySearchElement(nums, target));
 
-        BinarySearch obj = new BinarySearch();
-        int result = obj.search(nums, target);
-        System.out.println("Index at : "+result);
+
     }
+    
 }

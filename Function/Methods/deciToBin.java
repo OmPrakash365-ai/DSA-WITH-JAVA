@@ -17,7 +17,7 @@ public class deciToBin {
     }
 
     public static void main(String args[]) {
-        decitobin(7);
+       decitobin(7); 
     }
     
 }

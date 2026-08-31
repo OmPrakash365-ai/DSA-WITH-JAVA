@@ -1,10 +1,10 @@
 package Arrays;
 
 public class PassingArrayAsArgumnt {
-    public static void update(int marks[], int nonchangeable) {
+    public static void update(int mark[], int nonchangeable) {
         nonchangeable = 10;
-        for(int i=0;i<marks.length;i++) {
-            marks[i]=marks[i]+1;
+        for(int i=0;i<mark.length;i++) {
+            mark[i]=mark[i]+1;
         }
         System.out.println("NonchnageAble value in update function: "+nonchangeable);
     }
